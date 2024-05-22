@@ -1,0 +1,49 @@
+﻿@model IEnumerable<WebCuoiKy.Models.DanhGia>
+
+<div class="tab-pane fade text-lg-left" id="tab-pane-3">
+    <div class="row">
+        
+        <div class="col-md-6">
+            <small>
+                <h5 style="color:#aaa;">* Đánh Giá *</h5>
+            </small>
+            @foreach (var item in Model)
+            {
+                <div class="media mb-4">
+                    <div class="media-body">
+                        <h6>@item.TenNguoiDG<small> - <i>@String.Format("{0:dd/MM/yyyy}",@item.NgayDG)</i></small></h6>
+                        <p>@item.NoiDung</p>
+                    </div>
+                </div>
+            }
+            </div>
+        <div class="col-md-6">
+            <h4 class="mb-4">Đánh giá sản phẩm</h4>
+            <small>
+                Email của bạn sẽ không được hiển thị công khai. Các trường bắt buộc được đánh dấu *
+            </small>
+            @using (Html.BeginForm("DanhGia", "Home", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+            {
+                <form>
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <label for="message">Nội dung *</label>
+                        <textarea id="message" name="sND" cols="30" rows="5" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Họ tên *</label>
+                        <input type="text" class="form-control" id="name" name="sTen">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" class="form-control" id="email" name="sEmail">
+                    </div>
+                    <div class="form-group mb-0">
+                        <input type="submit" value="Gửi đánh giá" class="btn btn-primary px-3" style="background-color: #FFEA00; border: 1px solid #d7d7d7;">
+                    </div>
+                </form>
+            }
+        </div>
+    </div>
+</div>

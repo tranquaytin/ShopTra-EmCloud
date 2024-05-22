@@ -1,0 +1,33 @@
+﻿<style type="text/css">
+    button:hover {
+        background-color: forestgreen;
+    }
+</style>
+
+<div class="container-fluid" style="background-color:#FFEA00">
+    <div class="row align-items-center py-3 px-xl-5">
+        <div class="col-lg-3 d-none d-lg-block">
+            <a href="@Url.Action("Index", "Home")" class="text-decoration-none">
+                <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-2 mr-1">E</span>mCloud</h1>
+            </a>
+        </div>
+        <div class="col-lg-6 col-6 text-left">
+            @using (Html.BeginForm("KQTimKiem", "TimKiem"))
+            {
+            <form action="">
+                <div class="input-group">
+                    <input type="text" name="searchString" class="form-control" placeholder="Tìm kiếm sản phẩm...">
+                    <div class="input-group-append" style="background-color:#E70000;">
+                        <button class="input-group-text  bg-transparent">
+                            <i class="fa fa-search" style="color:white;"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+            }
+        </div>
+        <div class="col-lg-3 col-6 text-right">
+            @Html.Action("GioHangPartial", "GioHang")
+        </div>
+    </div>
+</div>

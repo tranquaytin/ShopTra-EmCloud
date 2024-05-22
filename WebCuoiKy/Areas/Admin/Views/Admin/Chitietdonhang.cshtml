@@ -1,0 +1,38 @@
+﻿@model IEnumerable<WebCuoiKy.Models.ChiTietDonHang>
+@{
+    ViewBag.Title = "Chitietdonhang";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        QUẢN LÝ ĐƠN HÀNG
+    </div>
+    <div style="margin-left:16px; margin-top: 5px;">
+        <a href="@Url.Action("DonHang","Admin")" class="btn btn-primary" role="button" style="background-color:cornflowerblue;"><span class="bi bi-arrow-left-short"> Trở về</span></a>
+    </div>
+    <div class="card-body">
+        <table style="width:100%;">
+            <thead style="text-align:center;">
+                <tr style="border: 1px solid black;">
+                    <th style="border: 1px solid #808080;">Mã Đơn Hàng</th>
+                    <th style="border: 1px solid #808080;">Mã Sản Phẩm</th>
+                    <th style="border: 1px solid #808080;">Số Lượng</th>
+                    <th style="border: 1px solid #808080;">Tổng tiền</th>
+                </tr>
+            </thead>
+            <tbody style="border: 1px solid #808080;">
+                @foreach (var item in Model)
+                {
+                    <tr style="border: 1px solid #808080;">
+                        <td style="border: 1px solid #808080; text-align: center;">@item.MaDH</td>
+                        <td style="border: 1px solid #808080; text-align: center;">@item.MaSP</td>
+                        <td style="border: 1px solid #808080; text-align: center;">@item.SoLuong</td>
+                        <td style="border: 1px solid #808080; text-align: center;">@string.Format("{0:0,00}", @item.DonGia)đ</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

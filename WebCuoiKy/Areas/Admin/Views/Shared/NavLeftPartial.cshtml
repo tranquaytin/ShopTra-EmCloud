@@ -1,0 +1,62 @@
+﻿<style>
+    a.nav-link:hover {
+        background-color: #808080;
+    }
+</style>
+
+
+    <div id="layoutSidenav_nav">
+        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+            <div class="sb-sidenav-menu">
+                <div class="nav">
+                    <div class="sb-sidenav-menu-heading">Emcloud</div>
+                    <a class="nav-link" href="@Url.Action("TrangChu","Admin")">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Bảng Điều Khiển
+                    </a>
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                        <div class="sb-nav-link-icon"><span class="bi bi-boxes"></span></div>
+                        Quản Lý Sản Phẩm
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="@Url.Action("Index","DanhMuc")"><span class="bi bi-caret-right-square"></span>&nbsp; Danh mục cấp 1</a>
+                            <a class="nav-link" href="@Url.Action("SanPham","SanPham")"><span class="bi bi-caret-right-square"></span>&nbsp; Sản phẩm</a>
+                        </nav>
+                    </div>
+                    <a class="nav-link collapsed" href="@Url.Action("Slider","Admin")" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                        <div class="sb-nav-link-icon"><span class="bi bi-newspaper"></span></div>
+                        Quản Lý Hình Slider
+                        <div class="sb-sidenav-collapse-arrow"></div>
+                    </a>
+                    <a class="nav-link collapsed" href="@Url.Action("DonHang","Admin")" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                        <div class="sb-nav-link-icon"><span class="bi bi-bag"></span></i></div>
+                        Quản Lý Đơn Hàng
+                        <div class="sb-sidenav-collapse-arrow"></i></div>
+                    </a>
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                        <div class="sb-nav-link-icon"><span class="bi bi-bookmark"></span></i></div>
+                        Quản Lý Trang Tĩnh
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                            <a class="nav-link collapsed" href="@Url.Action("QLTK","Admin")"  >
+                                <span class="bi bi-person-circle"></span> &nbsp; Tài Khoản
+                                <div class="sb-sidenav-collapse-arrow"></div>
+                            </a>
+                            <a class="nav-link collapsed" href="@Url.Action("LienHe","Admin")" >
+                                <span class="bi bi-newspaper"></span>&nbsp; Liên Hệ
+                                <div class="sb-sidenav-collapse-arrow"></div>
+                            </a>
+                        </nav>
+                    </div>
+                    <a class="nav-link" href="#">
+                        <div class="sb-nav-link-icon"><span class="bi bi-gear-fill"></span></div>
+                        Cài Đặt
+                    </a>
+
+                </div>
+        </nav>
+    </div>

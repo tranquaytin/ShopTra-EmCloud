@@ -1,0 +1,49 @@
+﻿@model IEnumerable<WebCuoiKy.Models.DonHangDat>
+@{
+    ViewBag.Title = "DonHang";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        QUẢN LÝ ĐƠN HÀNG
+    </div>
+    <div style="margin-left:16px; margin-top: 5px;">
+        <a href="@Url.Action("TrangChu","Admin")" class="btn btn-primary" role="button" style="background-color:cornflowerblue;"><span class="bi bi-arrow-left-short"> Trở về</span></a>
+    </div>
+    <div class="card-body">
+        <table style="width:100%;">
+            <thead style="text-align:center;">
+                <tr style="border: 1px solid black;">
+                    <th style="border: 1px solid #808080;">Mã Đơn Hàng</th>
+                    <th style="border: 1px solid #808080;">Tên Khách Hàng</th>
+                    <th style="border: 1px solid #808080;">Điện Thoại</th>
+                    <th width="300px" style="border: 1px solid #808080;">Địa Chỉ</th>
+                    <th style="border: 1px solid #808080;">Thanh Toán</th>
+                    <th style="border: 1px solid #808080;">Ngày Đặt</th>
+                    <th style="border: 1px solid #808080;"></th>
+                </tr>
+            </thead>
+            <tbody style="border: 1px solid #808080;">
+                @foreach (var item in Model)
+                {
+                    <tr style="border: 1px solid #808080;">
+                        <td style="border: 1px solid #808080; text-align: center;"><a href="@Url.Action("Chitietdonhang","Admin", new {id = item.MaDH})" style="text-decoration:none;">@item.MaDH</a></td>
+                        <td style="border: 1px solid #808080; text-align: center;">@item.TenKH</td>
+                        <td style="border: 1px solid #808080; text-align: center;">@item.DienThoai</td>
+                        <td width="300px" style="border: 1px solid #808080; text-align: center;">@item.DiaChi</td>
+                        <td style="border: 1px solid #808080; text-align: center;">@item.DaThanhToan</td>
+                        <td style="border: 1px solid #808080; text-align: center;">@item.NgayDat</td>
+
+                        <td style="text-align:center; width:150px;">
+                            <a href="@Url.Action("Sua","Admin", new {id = item.MaDH})" class="btn btn-xs btn-warning" role="button"><i class="fa-solid fa-pen-to-square" style="color:white;"></i>  </a> |
+                            <a href="@Url.Action("Xoa", new {id = item.MaDH})" class="btn btn-xs btn-danger" role="button"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

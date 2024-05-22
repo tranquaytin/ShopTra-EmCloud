@@ -1,0 +1,90 @@
+﻿@model IEnumerable<WebCuoiKy.Models.DonHangDat>
+
+@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+
+
+<div class="container-fluid px-4">
+    <ol class="breadcrumb py-3">
+        <li class="breadcrumb-item active"><h2>Bảng Điều Khiển</h2></li>
+    </ol>
+    <div class="row">
+        <div class="col-xl-3 col-md-6" style="text-align:center;">
+            <div class="card bg-primary text-white mb-4">
+                <div class="card-body">Cấu Hình Website</div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="#" style="text-decoration:none;">View More</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6" style="text-align:center;">
+            <div class="card bg-warning text-white mb-4">
+                <div class="card-body">Tài Khoản</div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="@Url.Action("QLTK","Admin")" style="text-decoration:none;">View More</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6" style="text-align:center;">
+            <div class="card bg-success text-white mb-4">
+                <div class="card-body">Đổi Mật Khẩu</div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="#" style="text-decoration:none;">View More</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6" style="text-align:center;">
+            <div class="card bg-danger text-white mb-4">
+                <div class="card-body">Thư Liên Hệ</div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="#" style="text-decoration:none;">View More</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table me-1"></i>
+            QUẢN LÝ ĐƠN HÀNG
+        </div>
+        
+        <div class="card-body">
+            <table style="width:100%;">
+                <thead style="text-align:center;">
+                    <tr style="border: 1px solid black;">
+                        <th style="border: 1px solid #808080;">Mã Đơn Hàng</th>
+                        <th style="border: 1px solid #808080;">Tên Khách Hàng</th>
+                        <th style="border: 1px solid #808080;">Điện Thoại</th>
+                        <th width="300px" style="border: 1px solid #808080;">Địa Chỉ</th>
+                        <th style="border: 1px solid #808080;">Thanh Toán</th>
+                        <th style="border: 1px solid #808080;">Ngày Đặt</th>
+                        <th style="border: 1px solid #808080;"></th>
+                    </tr>
+                </thead>
+                <tbody style="border: 1px solid #808080;">
+                    @foreach (var item in Model)
+                    {
+                        <tr style="border: 1px solid #808080;">
+                            <td style="border: 1px solid #808080; text-align: center;"><a href="@Url.Action("Chitietdonhang","Admin", new {id = item.MaDH})" style="text-decoration:none;">@item.MaDH</a></td>
+                            <td style="border: 1px solid #808080; text-align: center;">@item.TenKH</td>
+                            <td style="border: 1px solid #808080; text-align: center;">@item.DienThoai</td>
+                            <td width="300px" style="border: 1px solid #808080; text-align: center;">@item.DiaChi</td>
+                            <td style="border: 1px solid #808080; text-align: center;">@item.DaThanhToan</td>
+                            <td style="border: 1px solid #808080; text-align: center;">@item.NgayDat</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+

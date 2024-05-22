@@ -1,0 +1,107 @@
+﻿@using WebCuoiKy.Models
+@{
+    ViewBag.Title = "DatHang";
+    Layout = "~/Views/Shared/_Layout_User.cshtml";
+}
+
+<style>
+    td {
+        height: 50px;
+        color: black;
+    }
+
+    a:hover {
+        color: red;
+    }
+
+    .content {
+        margin-top: -25px;
+        margin-bottom: 10px;
+        text-align: center;
+        border-radius: 0.5em;
+    }
+
+    .btn1:hover {
+        color: red;
+    }
+
+    .content {
+        box-shadow: 2px 2px 4px #aaa;
+    }
+</style>
+@section SliderPartial
+{
+    <div class="container-fluid pt-5 pb-4" style="background-color:white; width:100%; height:90%;">
+        <div class="content" style="background-color: #F3F4F6; width: 100%; margin-left: -2px; height: 45px; border:1px solid #808080">
+            <h5 class="section-title px-5" style="padding-top: 10px; text-align: left; ">THÔNG TIN NGƯỜI NHẬN</h5>
+        </div>
+        @{
+            KhachHang kh = (KhachHang)Session["TaiKhoan"];
+        }
+    <table align="left" style="margin-left:50px; margin-right:30px;">
+        @using (Html.BeginForm("DatHang", "GioHang"))
+        {
+            @Html.ValidationSummary(true)
+        <tr style="height:40px;">
+            <td>Tên người nhận: </td>
+            <td style="padding-left: 25px; color:red;">
+                <input type="text" class="form-control" name="ten" style="border: 1px solid #aaa;">
+            </td>
+        </tr>
+            <tr style="height:40px;">
+                <td>Điện thoại:</td>
+                <td style="padding-left: 25px; color:red;">
+                    <input type="tel" class="form-control" name="phone" style="border: 1px solid #aaa;">
+                </td>
+            </tr>
+            <tr style="height:40px;">
+                <td>Địa chỉ:</td>
+                <td>
+                    <input type="text" class="form-control" name="address"  style="width: 100%; border: 1px solid #aaa;">
+                </td>
+            </tr>
+            <tr style="height:40px;">
+                <td>Email:</td>
+                <td>
+                    <input type="email" class="form-control" name="email"  style="width:100%; border: 1px solid #aaa;">
+                </td>
+            </tr>
+            <tr style="height:40px;">
+                <td>Ngày đặt:</td>
+                <td>@DateTime.Now.ToShortDateString()</td>
+            </tr>
+            <tr style="height:40px;">
+                <td></td>
+                <td>
+                    <input class="btn1" type="submit" value="ĐẶT HÀNG" style="height:32px; background-color: #FFEA00; border-radius: 0.5em; border:1px solid #aaa;" />
+                    <button style="border: 1px solid #aaa; height: 32px; background-color: #FFEA00; border-radius:0.5em;"><a href="@Url.Action("GioHang","GioHang")" style="text-decoration: none;"> Về Giỏ Hàng</a></button>
+                </td>
+            </tr>
+        }
+    </table>
+    <div style="width:90%; margin-left:20px;">
+        <div class="card border-secondary mb-5">
+            <div class="card-header bg-secondary border-0">
+                <h4 class="font-weight-semi-bold m-0">Thông Tin Đơn Hàng</h4>
+            </div>
+            @foreach (var item in Model)
+            {
+        <div class="card-body">
+            <div class="d-flex justify-content-between">
+                <p>@item.sTenSP</p>
+                <p class="px-4">@item.iSoLuong</p>
+                <p>@string.Format("{0:#,##}", @item.dDonGia)đ</p>
+            </div>
+        </div>
+            }
+        <div class="card-footer border-secondary bg-transparent">
+            <div class="d-flex justify-content-between mb-3 pt-1">
+                <h6 class="font-weight-medium">Tổng tiền</h6>
+                <h6 class="font-weight-medium"><span style="color:red;">@string.Format("{0:#,##0,0}", ViewBag.TongTien)đ</span></h6>
+            </div>
+        </div>
+        </div>
+    </div>
+
+</div>
+}

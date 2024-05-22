@@ -1,0 +1,27 @@
+﻿@model IEnumerable<WebCuoiKy.Models.DanhMuc>
+<style>
+    .nav-link {
+        color: black;
+    }
+
+    a:hover {
+        color: red;
+    }
+</style>
+
+<div class="col-lg-3 d-none d-lg-block">
+    <a class="btn shadow-none d-flex align-items-center justify-content-between text-white w-100" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; margin-top: -1px; padding: 0 30px; background-color:#E70000; font-weight:bold;">
+        <img src="~/img/icon-bar.png" alt="icon-bar" />
+        <h8 class="m-0">DANH MỤC SẢN PHẨM</h8>
+        <i class="fa fa-angle-down text-dark"></i>
+    </a>
+    @foreach (var item in Model)
+    {
+        <nav class="collapse show navbar navbar-vertical navbar-light align-items-start p-2" id="navbar-vertical" style="border: 1px solid #d7d7d7; border-top:0px;">
+            <div class="nav-item dropdown">
+                <a href="@Url.Action("SanPhamTheoDanhMuc","Home", new { id = item.MaDM })" class="nav-link">@item.TenDM</a>
+            </div>
+        </nav>
+    }
+</div>
+

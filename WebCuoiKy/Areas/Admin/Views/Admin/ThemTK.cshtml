@@ -1,0 +1,68 @@
+﻿@model WebCuoiKy.Models.ADMIN
+
+@{
+    ViewBag.Title = "ThemTK";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<div class="card mb-4" style="margin-left:20px;">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        THÊM TÀI KHOẢN MỚI
+    </div>
+    @*Thêm thuộc tính cho form để upload ảnh*@
+    @using (Html.BeginForm("ThemTK", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    {
+        <div style="margin-left:16px; margin-top: 10px; margin-bottom:-15px;">
+            <a href="@Url.Action("QLTK","Admin")" class="btn btn-primary" role="button" style="background-color:#dd3a49;"><span class="bi bi-arrow-left"> Quay lại</span></a>
+            <button type="submit" class="btn btn-primary" style="background-color: #2008cff"><span class="bi bi-plus-lg"> Thêm</span></button>
+        </div>
+        <div class="card-body">
+
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <label class="control-label col-md-2 py-2">Tên người dùng:</label>
+                        <input type="text" size="70" name="sTen" required style="margin-left:5px;" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <label class="control-label col-md-2 py-2">Tên đăng nhập:</label>
+                        <input type="text" size="70" name="sTenDN" required style="margin-left:5px;" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <label class="control-label col-md-2 py-2">Mật khẩu:</label>
+                        <input type="text" size="70" name="sMatKhau" required style="margin-left:5px;" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <label class="control-label col-md-2 py-2">Điện thoại:</label>
+                        <input type="text" size="70" name="sDT" required style="margin-left:5px;" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <label class="control-label col-md-2 py-2">Quyền:</label>
+                        @Html.DropDownList("Quyen")
+                    </div>
+                </div>
+
+                <div class="form-group py-2">
+                    <div class="col-md-offset-2 col-md-10">
+                        <button type="reset" class="btn btn-primary" role="button" style="background-color:#727b82;"><span class="bi bi-arrow-clockwise"> Làm lại</span></button>
+                        <button type="submit" class="btn btn-primary" style="background-color:#2008cff;"><span class="bi bi-plus-lg"> Thêm</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+</div>
+

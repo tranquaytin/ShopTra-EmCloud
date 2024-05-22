@@ -1,0 +1,76 @@
+﻿@*Khai báo để sử dụng chức năng phân trang*@
+@using WebCuoiKy.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<WebCuoiKy.Models.Slider>
+
+
+@*Xây dựn một helper tùy chỉnh để cắt độ dài chuỗi*@
+@helper Truncate(string s, int length)
+{
+    if (s.Length < length)
+    {
+        @s
+    }
+    else
+    {
+        @s.Substring(0, length)<text>...</text>
+    }
+}
+@{
+    ViewBag.Title = "Slider";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        QUẢN LÝ SILDER
+    </div>
+    <div style="margin-left:16px; margin-top: 5px;">
+        <a href="@Url.Action("TrangChu","Admin")" class="btn btn-primary" role="button" style="background-color:cornflowerblue;"><span class="bi bi-arrow-left-short"> Trở về</span></a>
+        <a href="@Url.Action("Create","Admin")" class="btn btn-primary bi bi-plus" role="button">Thêm</a>
+    </div>
+    <div class="card-body">
+        <table style="width:100%;">
+            <thead style="text-align:center;">
+                <tr style="border: 1px solid black;">
+                    <th style="border: 1px solid #808080;">Tiêu Đề Slider</th>
+                    <th style="border: 1px solid #808080;">Ảnh Slider / Link Slider</th>
+                    <th style="border: 1px solid #808080;">Mô Tả Slider</th>
+                    <th style="border: 1px solid #808080;">Hiện Thị</th>
+                    <th style="border: 1px solid #808080;">Loại Slider</th>
+                    <th style="border: 1px solid #808080;"></th>
+                </tr>
+            </thead>
+            <tbody style="border: 1px solid #808080;">
+                @foreach (var item in Model)
+                {
+                    <tr style="border: 1px solid #808080;">
+                        <td style="border: 1px solid #808080; text-align: center;">@Html.DisplayFor(modelItem => item.TieuDe)</td>
+                        <td style="border: 1px solid #808080; text-align: center;"><img src="~/img/@item.Anh" style="width:200px; margin-top:8px; margin-bottom:8px;" /></td>
+                        <td style="border: 1px solid #808080; text-align: center;">@Html.Raw(Truncate(item.MoTa, 70).ToString())</td>
+                        <td style="border: 1px solid #808080; text-align: center;">@Html.DisplayFor(modelItem => item.HienThi)</td>
+                        <td style="border: 1px solid #808080; text-align: center;">@Html.DisplayFor(modelItem => item.LoaiSlider)</td>
+
+                        <td style="text-align:center;">
+                            <a href="@Url.Action("Edit","Admin", new {id = item.MaSL})" class="btn btn-primary" role="button" style="background-color: cornflowerblue; ">Sữa</a> |
+                            <a href="@Url.Action("Delete", new {id = item.MaSL})" class="btn btn-danger" role="button" style="background-color: #CC0000;">Xóa</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    Trang @(Model.PageCount < Model.PageNumber ? 0 :Model.PageNumber)/@Model.PageCount
+    <div class="MenuTrang">
+        @Html.PagedListPager(Model, page => Url.Action("Slider", new { page = page }))
+    </div>
+    <style>
+        .MenuTrang {
+            display: inline;
+            text-align: center;
+            margin-left: 50%;
+        }
+    </style>
+</div>
+

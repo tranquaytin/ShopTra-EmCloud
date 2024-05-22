@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "LienHe";
+    Layout = "~/Views/Shared/_Layout_User.cshtml";
+}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+<style>
+    .shapes {
+        width: 300px;
+        height: 50px;
+    }
+
+    .content {
+        clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+        width: 400px;
+    }
+</style>
+<div class="container-fluid pt-5" style="background-color:white; width:91%;">
+    <div class="text-center mb-4" style="margin-top:-93px; margin-left:-13px; ">
+        <div class="container-fluid pt-5">
+            <div class="shapes">
+                <div class="content" style="background-color:#FFEA00; width:100%; margin-left:-2px; height:45px;">
+                    <h3 class="section-title px-5" style="padding-top:8px; text-align:left; "><span class="px-2">LIÊN HỆ</span></h3>
+                </div>
+            </div><div style="width: 100%; border-bottom: 1px solid #bfbfbf; margin-top:-5px; "></div>
+
+            <div class="row px-xl-5" style="padding-top:20px;">
+                <!--Phần để khách hàng gửi mail-->
+                <div class="col-lg-7 mb-5">
+                    <div class="contact-form">
+                        <div id="success"></div>
+                        <form action="" name="" method="post" enctype="multipart/form-data">
+                            <div class="control-group">
+                                <input type="text" class="form-control"  placeholder="Họ Tên" name="ten" required="required" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <input type="tel" class="form-control"  placeholder="Điện thoại" name="phone" required="required" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <input type="email" class="form-control" placeholder="Email của bạn" name="email" required="required" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <textarea type="text" rows="6" class="form-control" placeholder="Nội dung" name="address" required="required"></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div>
+                                <button class="btn btn-warning py-2 px-4" type="submit" id="sendMessageButton" style="border-radius:1em;">Gửi <span class="bi bi-arrow-right-square teal-color"></span></button>
+                                <button class="btn btn-warning py-2 px-4" type="reset" id="sendMessageButton" style="border-radius:1em;">
+                                    Nhập Lại <span class="bi bi-arrow-clockwise teal-color"> </span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-5 mb-5 text-lg-left">
+                    <h5 class="font-weight-semi-bold mb-2">Địa Chỉ Liên Lạc</h5>
+                    <p> Đc: 151/2 khu A, Kp. Thạnh Quý, P. An Thạnh, TP. Thuận An, Bình Dương</p>
+                    <p>Hotline: 0985478445</p>
+                    <p>Zalo: 0985478445</p>
+                    <p>Email: Hoalamphat@gmail.com</p>
+                    <p>Website: EMmcloud.vn</p>
+                    <div class="d-flex flex-column mb-2">
+                        <h5 class="font-weight-semi-bold mb-2">Chi Nhánh 1</h5>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Cty Hoa Lâm Phát, Kp. Khánh Hội, Tx. Tân Uyên, Bình Dương</p>
+                        <p class="mb-2"><i class="fa fa-envelope text-primary mr-2"></i>hoalamphat@gmail.com</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt text-primary mr-2"></i>+84 985 478445</p>
+                    </div>
+                    <div class="d-flex flex-column">
+                        <h5 class="font-weight-semi-bold mb-2">Chi Nhánh 2</h5>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Kp. Thạnh Quý, P. An Thạnh, Tp. Thuận An, Bình Dương</p>
+                        <p class="mb-2"><i class="fa fa-envelope text-primary mr-2"></i>hoalamphat@gmail.com</p>
+                        <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-2"></i>+84 985 478445</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section SliderPartial{
+    @Html.Action("SliderPartial", "Home")
+}

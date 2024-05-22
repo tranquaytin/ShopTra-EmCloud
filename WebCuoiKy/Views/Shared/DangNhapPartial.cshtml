@@ -1,0 +1,18 @@
+﻿@model WebCuoiKy.Models.KhachHang
+
+<div class="navbar-nav ml-auto py-0 border-0">
+    @if (Session["TaiKhoan"] != null)
+    {
+        <div class="nav-item dropdown">
+            <a href="@Url.Action("DangNhap", "KhachHang")" class="nav-link dropdown-toggle" data-toggle="dropdown">Xin chào: @Session["HoTen"].ToString()</a>
+            <div class="dropdown-menu rounded-0 m-0 w-100">
+                <a href="@Url.Action("GioHang","GioHang")" class="dropdown-item btn btn-warning">Giỏ Hàng</a>
+                <a href="@Url.Action("DangXuat", "KhachHang")" class="dropdown-item">Đăng Xuất <span class='bi bi-box-arrow-right mau'></span> </a>
+            </div>
+        </div>
+    }
+    else
+    {
+        <a href="@Url.Action("DangNhap", "KhachHang")" class="nav-item nav-link">Đăng Nhập <span class='bi bi-box-arrow-in-right colored'></span></a>
+        <a href="@Url.Action("DangKy", "KhachHang")" class="nav-item nav-link">Đăng Ký</a>
+    }

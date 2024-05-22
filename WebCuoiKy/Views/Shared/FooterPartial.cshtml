@@ -1,0 +1,48 @@
+﻿@model IEnumerable<WebCuoiKy.Models.LienHe>
+
+<div class="container-fluid bg-secondary text-dark mt-5 pt-5">
+    <div class="row px-xl-5 pt-5">
+        <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
+            @foreach (var item in Model)
+            {
+                <a href="" class="text-decoration-none">
+                    <h1 class="mb-4 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border border-white px-3 mr-1">E</span>mCloud</h1>
+                </a>
+                <p>Đc: @item.DiaChi</p>
+                <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>@item.ViTri</p>
+                <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>@item.Email</p>
+                <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i>@item.DienThoai</p>
+            }
+        </div>
+        <div class="col-lg-8 col-md-12">
+            <div class="row">
+                <div class="col-md-3 mb-5">
+                    <h5 class="font-weight-bold text-dark mb-4">Đường Dẫn</h5>
+                    <div class="d-flex flex-column justify-content-start">
+                        <a class="text-dark mb-2" href="@Url.Action("Index", "Home")"><i class="fa fa-angle-right mr-2"></i>Home</a>
+                        <a class="text-dark mb-2" href="@Url.Action("Index", "Home")"><i class="fa fa-angle-right mr-2"></i>Trang Chủ</a>
+                        <a class="text-dark mb-2" href="@Url.Action("DangNhap", "KhachHang")"><i class="fa fa-angle-right mr-2"></i>Đăng Nhập</a>
+                        <a class="text-dark mb-2" href="@Url.Action("GioHang", "GioHang")"><i class="fa fa-angle-right mr-2"></i>Giỏ Hàng</a>
+                        <a class="text-dark mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Thanh Toán</a>
+                        <a class="text-dark" href="@Url.Action("LienHe", "Home")"><i class="fa fa-angle-right mr-2"></i>Liên hệ với chúng tôi</a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <h5 class="font-weight-bold text-dark mb-4">Phương Thức thanh toán</h5>
+                    <div class="d-flex flex-column justify-content-start">
+                        <img src="~/img/pttt.png" style="height:190px;" width="250px;" />
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <h5 class="font-weight-bold text-dark mb-4">Bản đồ vị trí</h5>
+                    <form action="">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.5252465472827!2d106.72545451459126!3d10.999162592170642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174db0c5c3894dd%3A0x98f39e1aef8c32f4!2zY8O0bmcgdHkgaG9hIGzDom0gcGjDoXQ!5e0!3m2!1svi!2s!4v1668742957935!5m2!1svi!2s" width="350" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <div class="p-3" style="float:right;">
+                            <p>Lượt xem: <span style="color:red;">@ApplicationInstance.Application["HitCounter"]</span></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>

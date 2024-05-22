@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "XacNhanLienHe";
+    Layout = "~/Views/Shared/_Layout_User.cshtml";
+}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+
+<style>
+    td {
+        height: 50px;
+        color: black;
+    }
+
+    a {
+        color: black;
+    }
+
+        a:hover {
+            color: white;
+        }
+
+    .content {
+        margin-top: -25px;
+        margin-bottom: 10px;
+        text-align: center;
+        border-radius: 0.5em;
+    }
+
+    .content {
+        box-shadow: 2px 2px 4px #aaa;
+    }
+</style>
+@section SliderPartial
+{
+    <div class="container-fluid pt-5" style="background-color:white; width:100%;">
+        <div class="content" style="background-color: #F3F4F6; width: 100%; margin-left: -2px; height: 45px; border:1px solid #808080">
+            <h5 class="section-title px-5" style="padding-top: 10px; text-align: left; ">LIÊN HỆ</h5>
+        </div>
+        <p style="color:red; padding-top:10px;">Cảm ơn bạn đã liên hệ. Chúng tôi đã nhận được phản hồi và liện hệ quý khách trong thời gian sớm nhất. Xin cảm ơn !</p>
+        <button type="submit" value="Đăng Nhập" id="Submit" class="btn btn-warning" style="margin-top:10px; margin-bottom:15px; border-radius:1em; text-decoration:none;">
+            @Html.ActionLink("Về Trang Chủ", "Index", "Home")
+        </button>
+    </div>
+}
+

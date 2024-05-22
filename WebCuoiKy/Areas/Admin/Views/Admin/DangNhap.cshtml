@@ -1,0 +1,48 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ADMIN</title>
+    <link rel='stylesheet' href='https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link href="~/css/demo.css" rel="stylesheet" />
+    <link href="~/css/style1.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="~/Home/Index" style="margin-left:480px;">
+                    <span id="boot-icon" class="bi bi-reply-fill"></span>
+                    xem website
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <main>
+        <article>
+            <div class="wrapper">
+                <form action="~/Admin/Admin/DangNhap" method="post" class="form-signin">
+                    <h4 class="form-signin-heading" style="color:#aaa; text-align:center;">*Đăng Nhập Hệ Thống*</h4>
+                    <input type="text" class="form-control" name="UserName" placeholder="Tên đăng nhập..." required="" autofocus="" />
+                    <input type="password" class="form-control" name="Password" placeholder="Mật khẩu" required="" />
+                    <label class="checkbox" style="color:#aaa;">
+                        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Lưu thông tin đăng nhập
+                    </label>
+                    <p style="font-style : initial; color: red; margin: 0px;">@ViewBag.ThongBao</p>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Đăng Nhập</button>
+                </form>
+            </div>
+        </article>
+    </main>
+</body>
+</html>

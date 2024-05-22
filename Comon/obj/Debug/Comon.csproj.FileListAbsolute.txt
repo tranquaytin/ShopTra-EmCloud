@@ -1,0 +1,2 @@
+D:\CuoiKy\WebCuoiKy\Comon\obj\Debug\Comon.csproj.AssemblyReference.cache
+D:\CuoiKy\WebCuoiKy\Comon\obj\Debug\Comon.csproj.CoreCompileInputs.cache
